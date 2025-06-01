@@ -5,7 +5,7 @@ import { Fish, Waves, TrendingUp, Shield, Users, Leaf } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white scroll-smooth">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -17,14 +17,8 @@ export default function HomePage() {
             <Link href="#how-it-works" className="text-gray-600 hover:text-blue-600">
               How It Works
             </Link>
-            <Link href="#marketplace" className="text-gray-600 hover:text-blue-600">
-              Marketplace
-            </Link>
-            <Link href="#sustainability" className="text-gray-600 hover:text-blue-600">
-              Sustainability
-            </Link>
-            <Link href="#about" className="text-gray-600 hover:text-blue-600">
-              About
+            <Link href="#platform-features" className="text-gray-600 hover:text-blue-600">
+              Platform Features
             </Link>
           </nav>
           <div className="flex items-center space-x-3">
@@ -103,7 +97,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="py-16">
+      <section id="platform-features" className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Platform Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -127,77 +121,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Dive In?</h2>
-          <p className="text-xl mb-8 opacity-90">Join the sustainable aquaculture revolution today</p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link href="/auth">Start Your Journey</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Waves className="h-6 w-6" />
-                <span className="text-xl font-bold">TidalFi</span>
-              </div>
-              <p className="text-gray-400">Sustainable aquaculture through blockchain innovation</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/marketplace">Marketplace</Link>
-                </li>
-                <li>
-                  <Link href="/governance">Governance</Link>
-                </li>
-                <li>
-                  <Link href="/sustainability">Sustainability</Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/help">Help Center</Link>
-                </li>
-                <li>
-                  <Link href="/docs">Documentation</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact</Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/privacy">Privacy Policy</Link>
-                </li>
-                <li>
-                  <Link href="/terms">Terms of Service</Link>
-                </li>
-                <li>
-                  <Link href="/compliance">Compliance</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 TidalFi. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

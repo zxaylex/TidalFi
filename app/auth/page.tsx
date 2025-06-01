@@ -102,7 +102,7 @@ export default function AuthPage() {
                       </ul>
                     </div>
                   </div>
-                  <Button onClick={() => handleInternetIdentityLogin("farmer")} className="w-full" size="lg">
+                  <Button onClick={() => handleInternetIdentityLogin("farmer")} className="w-full  bg-blue-800 hover:bg-blue-700" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     Continue with Internet Identity
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -124,7 +124,7 @@ export default function AuthPage() {
                         Fund sustainable aquaculture and earn returns from successful harvests
                       </CardDescription>
                     </div>
-                    <Badge variant="secondary">Funder</Badge>
+                    <Badge variant="secondary">Investor</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -149,7 +149,7 @@ export default function AuthPage() {
                       </ul>
                     </div>
                   </div>
-                  <Button onClick={() => handleInternetIdentityLogin("investor")} className="w-full" size="lg">
+                  <Button onClick={() => handleInternetIdentityLogin("investor")} className="w-full  bg-blue-800 hover:bg-blue-700" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     Continue with Internet Identity
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -196,7 +196,7 @@ export default function AuthPage() {
                       </ul>
                     </div>
                   </div>
-                  <Button onClick={() => handleInternetIdentityLogin("buyer")} className="w-full" size="lg">
+                  <Button onClick={() => handleInternetIdentityLogin("buyer")} className="w-full  bg-blue-800 hover:bg-blue-700" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     Continue with Internet Identity
                     <ArrowRight className="h-4 w-4 ml-2" />

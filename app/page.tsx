@@ -25,7 +25,7 @@ export default function HomePage() {
             <Button variant="outline" asChild>
               <Link href="/auth">Login</Link>
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 font-bold" asChild>
+            <Button className="bg-blue-700 hover:bg-blue-600 font-bol" asChild>
               <Link href="/auth" >Get Started</Link>
             </Button>
           </div>
@@ -44,7 +44,7 @@ export default function HomePage() {
             Transparent, traceable, and profitable aquaculture for everyone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 font-bold" asChild>
+            <Button size="lg" className="bg-blue-700 hover:bg-blue-600" asChild>
               <Link href="/auth?role=farmer">I'm a Farmer</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>

@@ -11,7 +11,7 @@ import { Waves, Fish, TrendingUp, ShoppingCart, Shield, ArrowRight } from "lucid
 
 export default function AuthPage() {
   const searchParams = useSearchParams()
-  const initialRole = searchParams.get("role") || "farmer"
+  const initialRole = searchParams.get("role") || "producer"
   const [selectedRole, setSelectedRole] = useState(initialRole)
 
   const handleInternetIdentityLogin = (role: string) => {
@@ -50,9 +50,9 @@ export default function AuthPage() {
 
           <Tabs value={selectedRole} onValueChange={setSelectedRole} className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="farmer" className="flex items-center gap-2">
+              <TabsTrigger value="producer" className="flex items-center gap-2">
                 <Fish className="h-4 w-4" />
-                Farmer
+                producer
               </TabsTrigger>
               <TabsTrigger value="investor" className="flex items-center gap-2">
                 <TrendingUp className="h-4 w-4" />
@@ -64,14 +64,14 @@ export default function AuthPage() {
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="farmer" className="mt-8">
+            <TabsContent value="producer" className="mt-8">
               <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className="flex items-center gap-2">
                         <Fish className="h-6 w-6 text-blue-600" />
-                        Fish Farmer
+                        Fish producer
                       </CardTitle>
                       <CardDescription>
                         Tokenize your sustainable fish harvests and access global funding
@@ -102,7 +102,7 @@ export default function AuthPage() {
                       </ul>
                     </div>
                   </div>
-                  <Button onClick={() => handleInternetIdentityLogin("farmer")} className="w-full  bg-blue-800 hover:bg-blue-700" size="lg">
+                  <Button onClick={() => handleInternetIdentityLogin("producer")} className="w-full  bg-blue-800 hover:bg-blue-700" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     Continue with Internet Identity
                     <ArrowRight className="h-4 w-4 ml-2" />

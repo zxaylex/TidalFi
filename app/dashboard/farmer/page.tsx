@@ -22,7 +22,7 @@ import {
 } from "lucide-react"
 import { DashboardHeader } from "@/components/dashboard-header"
 
-export default function FarmerDashboard() {
+export default function producerDashboard() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
 
   const harvestTokens = [
@@ -183,12 +183,12 @@ export default function FarmerDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader userRole="farmer" />
+      <DashboardHeader userRole="producer" />
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Farmer Dashboard</h1>
+            <h1 className="text-3xl font-bold text-gray-900">producer Dashboard</h1>
             <p className="text-gray-600">Manage your fish harvests and tokens</p>
           </div>
           <Button className="bg-blue-700 hover:bg-blue-600" asChild>

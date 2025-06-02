@@ -27,11 +27,11 @@ import Link from "next/link"
 
 export default function MarketplacePage() {
   const searchParams = useSearchParams()
-  const [userRole, setUserRole] = useState<"farmer" | "investor" | "buyer">("investor")
+  const [userRole, setUserRole] = useState<"producer" | "investor" | "buyer">("investor")
 
   useEffect(() => {
-    const roleFromUrl = searchParams.get("role") as "farmer" | "investor" | "buyer"
-    const storedRole = localStorage.getItem("userRole") as "farmer" | "investor" | "buyer"
+    const roleFromUrl = searchParams.get("role") as "producer" | "investor" | "buyer"
+    const storedRole = localStorage.getItem("userRole") as "producer" | "investor" | "buyer"
 
     if (roleFromUrl) {
       setUserRole(roleFromUrl)
@@ -43,7 +43,7 @@ export default function MarketplacePage() {
 
   const getPageTitle = () => {
     switch (userRole) {
-      case "farmer":
+      case "producer":
         return {
           title: "Marketplace Analytics",
           subtitle: "Monitor demand and pricing for your fish species",
@@ -67,7 +67,7 @@ export default function MarketplacePage() {
     {
       tokenId: "TF-001",
       species: "Atlantic Salmon",
-      farmer: "Nordic Aqua Farm",
+      producer: "Nordic Aqua Farm",
       location: "Norway",
       quantity: "2,500 kg",
       totalValue: "$25,000",
@@ -78,7 +78,7 @@ export default function MarketplacePage() {
       fundingProgress: 75,
       daysLeft: 12,
       expectedROI: "12-15%",
-      farmerRating: 4.9,
+      producerRating: 4.9,
       qualityGrade: "Premium",
       freshness: "Expected: 24-48h delivery post-harvest",
       trending: true,
@@ -86,7 +86,7 @@ export default function MarketplacePage() {
     {
       tokenId: "TF-002",
       species: "Rainbow Trout",
-      farmer: "Mountain Stream Farms",
+      producer: "Mountain Stream Farms",
       location: "Scotland",
       quantity: "1,800 kg",
       totalValue: "$15,000",
@@ -97,7 +97,7 @@ export default function MarketplacePage() {
       fundingProgress: 90,
       daysLeft: 5,
       expectedROI: "10-13%",
-      farmerRating: 4.7,
+      producerRating: 4.7,
       qualityGrade: "Premium",
       freshness: "Expected: 12-24h delivery post-harvest",
       trending: false,
@@ -105,7 +105,7 @@ export default function MarketplacePage() {
     {
       tokenId: "TF-003",
       species: "Mediterranean Sea Bass",
-      farmer: "Aegean Aquaculture",
+      producer: "Aegean Aquaculture",
       location: "Greece",
       quantity: "3,200 kg",
       totalValue: "$32,000",
@@ -116,7 +116,7 @@ export default function MarketplacePage() {
       fundingProgress: 45,
       daysLeft: 28,
       expectedROI: "14-18%",
-      farmerRating: 4.8,
+      producerRating: 4.8,
       qualityGrade: "Super Premium",
       freshness: "Expected: 24-36h delivery post-harvest",
       trending: true,
@@ -133,7 +133,7 @@ export default function MarketplacePage() {
             <h1 className="text-3xl font-bold text-gray-900">{pageInfo.title}</h1>
             <p className="text-gray-600">{pageInfo.subtitle}</p>
           </div>
-          {userRole === "farmer" && (
+          {userRole === "producer" && (
             <Button asChild>
               <Link href="/tokenize">
                 <Plus className="h-4 w-4 mr-2" />
@@ -149,7 +149,7 @@ export default function MarketplacePage() {
             <div className="flex-1">
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input placeholder="Search by species, farmer, or location..." className="pl-10" />
+                <Input placeholder="Search by species, producer, or location..." className="pl-10" />
               </div>
             </div>
             <Select>
@@ -192,8 +192,8 @@ export default function MarketplacePage() {
           </div>
         </div>
 
-        {userRole === "farmer" ? (
-          // Farmer View - Restaurant Marketplace
+        {userRole === "producer" ? (
+          // producer View - Restaurant Marketplace
           <Tabs defaultValue="restaurants" className="space-y-6">
             <TabsList>
               <TabsTrigger value="restaurants">Restaurant Partners</TabsTrigger>
@@ -678,7 +678,7 @@ export default function MarketplacePage() {
             <TabsList>
               <TabsTrigger value="available">Available Fish</TabsTrigger>
               <TabsTrigger value="quality">Quality Grades</TabsTrigger>
-              <TabsTrigger value="farmers">Trusted Farmers</TabsTrigger>
+              <TabsTrigger value="producers">Trusted producers</TabsTrigger>
             </TabsList>
 
             <TabsContent value="available" className="space-y-6">
@@ -694,7 +694,7 @@ export default function MarketplacePage() {
                           <CardTitle className="text-lg">{token.species}</CardTitle>
                           <CardDescription className="flex items-center mt-1">
                             <MapPin className="h-3 w-3 mr-1" />
-                            {token.farmer} • {token.location}
+                            {token.producer} • {token.location}
                           </CardDescription>
                         </div>
                         <Badge
@@ -726,10 +726,10 @@ export default function MarketplacePage() {
                           <p className="font-medium">{token.harvestDate}</p>
                         </div>
                         <div>
-                          <p className="text-gray-600">Farmer Rating</p>
+                          <p className="text-gray-600">producer Rating</p>
                           <div className="flex items-center">
                             <Star className="h-3 w-3 text-yellow-500 mr-1" />
-                            <span className="font-medium">{token.farmerRating}</span>
+                            <span className="font-medium">{token.producerRating}</span>
                           </div>
                         </div>
                       </div>
@@ -829,11 +829,11 @@ export default function MarketplacePage() {
               </div>
             </TabsContent>
 
-            <TabsContent value="farmers" className="space-y-6">
+            <TabsContent value="producers" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Trusted Farmers</CardTitle>
-                  <CardDescription>Our highest-rated fish farmers</CardDescription>
+                  <CardTitle>Trusted producers</CardTitle>
+                  <CardDescription>Our highest-rated fish producers</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -862,32 +862,32 @@ export default function MarketplacePage() {
                         totalSales: "12,100 kg",
                         qualityScore: "97%",
                       },
-                    ].map((farmer, index) => (
+                    ].map((producer, index) => (
                       <div key={index} className="border rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
                           <div>
-                            <h4 className="font-semibold">{farmer.name}</h4>
+                            <h4 className="font-semibold">{producer.name}</h4>
                             <p className="text-sm text-gray-600 flex items-center">
                               <MapPin className="h-3 w-3 mr-1" />
-                              {farmer.location}
+                              {producer.location}
                             </p>
                           </div>
                           <div className="text-right">
                             <div className="flex items-center">
                               <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                              <span className="font-medium">{farmer.rating}</span>
+                              <span className="font-medium">{producer.rating}</span>
                             </div>
-                            <p className="text-sm text-gray-600">Quality: {farmer.qualityScore}</p>
+                            <p className="text-sm text-gray-600">Quality: {producer.qualityScore}</p>
                           </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div>
                             <p className="text-gray-600">Specialties</p>
-                            <p className="font-medium">{farmer.specialties.join(", ")}</p>
+                            <p className="font-medium">{producer.specialties.join(", ")}</p>
                           </div>
                           <div>
                             <p className="text-gray-600">Total Sales</p>
-                            <p className="font-medium">{farmer.totalSales}</p>
+                            <p className="font-medium">{producer.totalSales}</p>
                           </div>
                         </div>
                         <Button variant="outline" className="w-full mt-3" size="sm">
@@ -921,7 +921,7 @@ export default function MarketplacePage() {
                           <CardTitle className="text-lg">{token.species}</CardTitle>
                           <CardDescription className="flex items-center mt-1">
                             <MapPin className="h-3 w-3 mr-1" />
-                            {token.farmer} • {token.location}
+                            {token.producer} • {token.location}
                           </CardDescription>
                         </div>
                         <Badge variant="outline" className="text-xs">
@@ -1019,7 +1019,7 @@ export default function MarketplacePage() {
                               <div>
                                 <h4 className="font-semibold">{token.species}</h4>
                                 <p className="text-sm text-gray-600">
-                                  {token.farmer} • {token.location}
+                                  {token.producer} • {token.location}
                                 </p>
                               </div>
                             </div>

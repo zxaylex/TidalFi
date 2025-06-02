@@ -28,47 +28,36 @@ export default function producerDashboard() {
   const harvestTokens = [
     {
       id: "TF-001",
-      species: "Atlantic Salmon",
+      species: "Tilapia",
       quantity: "2,500 kg",
       harvestDate: "2024-03-15",
-      location: "Farm A - Sector 3",
+      location: "Laguna - Sector 3",
       progress: 75,
       status: "Growing",
-      funded: "$18,750",
-      total: "$25,000",
+      funded: "₱937,500",
+      total: "₱1,250,000",
     },
     {
       id: "TF-002",
-      species: "Rainbow Trout",
+      species: "Pompano",
       quantity: "1,800 kg",
       harvestDate: "2024-02-28",
-      location: "Farm B - Sector 1",
+      location: "Batangas - Sector 1",
       progress: 90,
       status: "Ready Soon",
-      funded: "$13,500",
-      total: "$15,000",
+      funded: "₱675,000",
+      total: "₱750,000",
     },
     {
       id: "TF-003",
-      species: "Sea Bass",
+      species: "Milkfish",
       quantity: "3,200 kg",
       harvestDate: "2024-04-20",
-      location: "Farm A - Sector 5",
+      location: "Pangasinan - Sector 5",
       progress: 45,
       status: "Growing",
-      funded: "$28,800",
-      total: "$32,000",
-    },
-    {
-      id: "TF-004",
-      species: "Arctic Char",
-      quantity: "1,500 kg",
-      harvestDate: "2024-04-10",
-      location: "Farm C - Sector 2",
-      progress: 65,
-      status: "Growing",
-      funded: "$11,700",
-      total: "$18,000",
+      funded: "₱1,440,000",
+      total: "₱1,600,000",
     },
   ]
 
@@ -203,24 +192,33 @@ export default function producerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Tokens</CardTitle>
-              <Fish className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-lg font-medium">Active Tokens</CardTitle>
+              <Fish className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
-              <p className="text-xs text-muted-foreground">+2 from last month</p>
+              <div className="text-3xl font-bold">12</div>
+              <p className="text-sm text-muted-foreground">
+                <span className="text-green-600 mr-1 font-bold">+2</span> 
+                from last month</p>
             </CardContent>
           </Card>
+
+          {/*Total Revenue*/}
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-lg font-medium">Total Revenue</CardTitle>
+              <DollarSign className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">$45,231</div>
-              <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+              <p className="text-xs text-muted-foreground">
+                +20.1% from last month</p>
             </CardContent>
           </Card>
+
+           {/*Pending Settlements*/}
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Pending Settlements</CardTitle>
@@ -238,7 +236,6 @@ export default function producerDashboard() {
             <TabsTrigger value="harvests">My Harvests</TabsTrigger>
             <TabsTrigger value="revenue">Revenue</TabsTrigger>
             <TabsTrigger value="performance">Token Performance</TabsTrigger>
-            <TabsTrigger value="iot">IoT Monitoring</TabsTrigger>
           </TabsList>
 
           <TabsContent value="harvests" className="space-y-6">
@@ -438,69 +435,6 @@ export default function producerDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-
-          <TabsContent value="iot" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>IoT Monitoring</CardTitle>
-                  <CardDescription>Real-time environmental data</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-3 border rounded">
-                      <div className="flex items-center space-x-3">
-                        <Thermometer className="h-5 w-5 text-blue-600" />
-                        <span>Water Temperature</span>
-                      </div>
-                      <span className="font-semibold">18.5°C</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 border rounded">
-                      <div className="flex items-center space-x-3">
-                        <Activity className="h-5 w-5 text-blue-600" />
-                        <span>Oxygen Level</span>
-                      </div>
-                      <span className="font-semibold">8.2 mg/L</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 border rounded">
-                      <div className="flex items-center space-x-3">
-                        <Activity className="h-5 w-5 text-blue-600" />
-                        <span>pH Level</span>
-                      </div>
-                      <span className="font-semibold">7.1</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>System Status</CardTitle>
-                  <CardDescription>Equipment and monitoring status</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span>Water Quality Sensors</span>
-                      <Badge variant="default">Active</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>Feeding Systems</span>
-                      <Badge variant="default">Active</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>Camera Monitoring</span>
-                      <Badge variant="default">Active</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>Data Logging</span>
-                      <Badge variant="default">Active</Badge>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </TabsContent>
         </Tabs>
       </div>

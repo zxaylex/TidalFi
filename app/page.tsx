@@ -35,9 +35,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Tokenize the Ocean's
-            <span className="text-blue-600 block">Sustainable Future</span>
+          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6">
+            Investing in a
+            <span className="text-blue-600 block font-bold ">Bountiful Future</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Connect sustainable fish farmers with global investors and buyers through blockchain-powered tokenization.

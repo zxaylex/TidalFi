@@ -232,7 +232,7 @@ export default function MyTokensPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader userRole="farmer" />
+      <DashboardHeader userRole="producer" />
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
@@ -242,7 +242,7 @@ export default function MyTokensPage() {
           </div>
           <div className="flex space-x-3">
             <Button variant="outline" asChild>
-              <Link href="/dashboard/farmer/pond">
+              <Link href="/dashboard/producer/pond">
                 <Eye className="h-4 w-4 mr-2" />
                 My Pond
               </Link>

@@ -5,7 +5,7 @@ import { Fish, Waves, TrendingUp, Shield, Users, Leaf } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white scroll-smooth">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -22,9 +22,6 @@ export default function HomePage() {
             </Link>
           </nav>
           <div className="flex items-center space-x-3">
-            <Button variant="outline" asChild>
-              <Link href="/auth">Login</Link>
-            </Button>
             <Button className="bg-blue-700 hover:bg-blue-600 font-bol" asChild>
               <Link href="/auth" >Get Started</Link>
             </Button>
@@ -35,17 +32,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Tokenize the Ocean's
-            <span className="text-blue-600 block">Sustainable Future</span>
+          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6">
+            Investing in a
+            <span className="text-blue-600 block font-bold ">Bountiful Future</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Connect sustainable fish farmers with global investors and buyers through blockchain-powered tokenization.
+            Connect sustainable fish producers with global investors and buyers through blockchain-powered tokenization.
             Transparent, traceable, and profitable aquaculture for everyone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-blue-700 hover:bg-blue-600" asChild>
-              <Link href="/auth?role=farmer">I'm a Farmer</Link>
+              <Link href="/auth?role=producer">I'm a Producer</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/auth?role=investor">I'm an Investor</Link>
@@ -65,9 +62,9 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <Fish className="h-12 w-12 text-blue-600 mb-4" />
-                <CardTitle>Farmers Tokenize</CardTitle>
+                <CardTitle>Producers Tokenize</CardTitle>
                 <CardDescription>
-                  Sustainable fish farmers create tokens representing their future harvests, backed by IoT monitoring
+                  Sustainable fish producers create tokens representing their future harvests, backed by IoT monitoring
                   and sustainability certifications.
                 </CardDescription>
               </CardHeader>
@@ -111,7 +108,7 @@ export default function HomePage() {
             <div className="text-center">
               <Leaf className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Sustainability Tracking</h3>
-              <p className="text-gray-600">Real-time IoT monitoring and third-party sustainability certifications</p>
+              <p className="text-gray-600">Real-time IoT monitoring and Government issued certifications</p>
             </div>
             <div className="text-center">
               <TrendingUp className="h-12 w-12 text-purple-600 mx-auto mb-4" />

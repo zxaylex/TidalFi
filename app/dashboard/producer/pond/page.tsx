@@ -183,7 +183,7 @@ export default function MyPondPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader userRole="farmer" />
+      <DashboardHeader userRole="producer" />
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
@@ -193,7 +193,7 @@ export default function MyPondPage() {
           </div>
           <div className="flex space-x-3">
             <Button variant="outline" asChild>
-              <Link href="/dashboard/farmer">
+              <Link href="/dashboard/producer">
                 <BarChart3 className="h-4 w-4 mr-2" />
                 Dashboard
               </Link>
@@ -635,7 +635,7 @@ export default function MyPondPage() {
                             </div>
 
                             <Button variant="outline" size="sm" className="w-full" asChild>
-                              <Link href={`/token/${token.id}?role=farmer`}>View Details</Link>
+                              <Link href={`/token/${token.id}?role=producer`}>View Details</Link>
                             </Button>
                           </CardContent>
                         </Card>
@@ -699,7 +699,7 @@ export default function MyPondPage() {
 
                           <div className="flex space-x-2 mt-4">
                             <Button variant="outline" size="sm" asChild>
-                              <Link href={`/token/${token.id}?role=farmer`}>View Details</Link>
+                              <Link href={`/token/${token.id}?role=producer`}>View Details</Link>
                             </Button>
                             {token.status === "Ready Soon" && <Button size="sm">Initiate Harvest</Button>}
                           </div>

@@ -41,7 +41,7 @@ const getTokenData = (id: string) => {
     "TF-001": {
       id: "TF-001",
       species: "Atlantic Salmon",
-      farmer: {
+      producer: {
         name: "Nordic Aqua Farm",
         location: "Trondheim, Norway",
         avatar: "/placeholder.svg?height=40&width=40",
@@ -171,12 +171,12 @@ export default function TokenDetailsPage() {
   const token = getTokenData(tokenId)
   const [investmentAmount, setInvestmentAmount] = useState("")
   const [isWishlisted, setIsWishlisted] = useState(false)
-  const [userRole, setUserRole] = useState<"farmer" | "investor" | "buyer">("investor")
+  const [userRole, setUserRole] = useState<"producer" | "investor" | "buyer">("investor")
 
   useEffect(() => {
     // Get role from URL params first, then localStorage
-    const roleFromUrl = searchParams.get("role") as "farmer" | "investor" | "buyer"
-    const storedRole = localStorage.getItem("userRole") as "farmer" | "investor" | "buyer"
+    const roleFromUrl = searchParams.get("role") as "producer" | "investor" | "buyer"
+    const storedRole = localStorage.getItem("userRole") as "producer" | "investor" | "buyer"
 
     if (roleFromUrl) {
       setUserRole(roleFromUrl)
@@ -192,8 +192,8 @@ export default function TokenDetailsPage() {
 
   const getBackLink = () => {
     switch (userRole) {
-      case "farmer":
-        return "/dashboard/farmer/tokens"
+      case "producer":
+        return "/dashboard/producer/tokens"
       case "buyer":
         return "/marketplace?role=buyer"
       default:
@@ -203,7 +203,7 @@ export default function TokenDetailsPage() {
 
   const getBackText = () => {
     switch (userRole) {
-      case "farmer":
+      case "producer":
         return "Back to My Tokens"
       case "buyer":
         return "Back to Marketplace"
@@ -226,7 +226,7 @@ export default function TokenDetailsPage() {
             </Link>
           </Button>
           <div className="flex items-center space-x-2">
-            {userRole !== "farmer" && (
+            {userRole !== "producer" && (
               <Button
                 variant="outline"
                 size="sm"
@@ -241,7 +241,7 @@ export default function TokenDetailsPage() {
               <Share2 className="h-4 w-4 mr-2" />
               Share
             </Button>
-            {userRole === "farmer" && (
+            {userRole === "producer" && (
               <Button variant="outline" size="sm">
                 <Edit className="h-4 w-4 mr-2" />
                 Edit Token
@@ -271,7 +271,7 @@ export default function TokenDetailsPage() {
                     <Badge variant="default" className="text-sm">
                       Active
                     </Badge>
-                    {userRole === "farmer" && (
+                    {userRole === "producer" && (
                       <Badge variant="outline" className="text-sm">
                         Your Token
                       </Badge>
@@ -348,13 +348,13 @@ export default function TokenDetailsPage() {
 
             {/* Detailed Tabs */}
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className={userRole === "farmer" ? "grid w-full grid-cols-6" : "grid w-full grid-cols-5"}>
+              <TabsList className={userRole === "producer" ? "grid w-full grid-cols-6" : "grid w-full grid-cols-5"}>
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="sustainability">Sustainability</TabsTrigger>
                 <TabsTrigger value="monitoring">Live Data</TabsTrigger>
                 <TabsTrigger value="timeline">Timeline</TabsTrigger>
                 <TabsTrigger value="documents">Documents</TabsTrigger>
-                {userRole === "farmer" && <TabsTrigger value="investors">Investors</TabsTrigger>}
+                {userRole === "producer" && <TabsTrigger value="investors">Investors</TabsTrigger>}
               </TabsList>
 
               <TabsContent value="overview" className="space-y-6">
@@ -702,7 +702,7 @@ export default function TokenDetailsPage() {
                 </Card>
               </TabsContent>
 
-              {userRole === "farmer" && (
+              {userRole === "producer" && (
                 <TabsContent value="investors" className="space-y-6">
                   <Card>
                     <CardHeader>
@@ -752,9 +752,9 @@ export default function TokenDetailsPage() {
 
           {/* Right Column - Context-specific Panel */}
           <div className="space-y-6">
-            {userRole === "farmer" ? (
+            {userRole === "producer" ? (
               <>
-                {/* Farmer Management Panel */}
+                {/* producer Management Panel */}
                 <Card>
                   <CardHeader>
                     <CardTitle>Token Management</CardTitle>
@@ -826,28 +826,28 @@ export default function TokenDetailsPage() {
               </>
             ) : (
               <>
-                {/* Farmer Profile for non-farmers */}
+                {/* producer Profile for non-producers */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Farmer Profile</CardTitle>
+                    <CardTitle>producer Profile</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
                         <Avatar className="h-12 w-12">
-                          <AvatarImage src={token.farmer.avatar || "/placeholder.svg"} />
+                          <AvatarImage src={token.producer.avatar || "/placeholder.svg"} />
                           <AvatarFallback>
-                            {token.farmer.name
+                            {token.producer.name
                               .split(" ")
                               .map((n) => n[0])
                               .join("")}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <h3 className="font-semibold">{token.farmer.name}</h3>
+                          <h3 className="font-semibold">{token.producer.name}</h3>
                           <p className="text-sm text-gray-600 flex items-center">
                             <MapPin className="h-3 w-3 mr-1" />
-                            {token.farmer.location}
+                            {token.producer.location}
                           </p>
                         </div>
                       </div>
@@ -857,27 +857,27 @@ export default function TokenDetailsPage() {
                           <p className="text-gray-600">Rating</p>
                           <div className="flex items-center">
                             <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                            <span className="font-medium">{token.farmer.rating}</span>
+                            <span className="font-medium">{token.producer.rating}</span>
                           </div>
                         </div>
                         <div>
                           <p className="text-gray-600">Total Harvests</p>
-                          <p className="font-medium">{token.farmer.totalHarvests}</p>
+                          <p className="font-medium">{token.producer.totalHarvests}</p>
                         </div>
                         <div>
                           <p className="text-gray-600">Sustainability</p>
-                          <p className="font-medium">{token.farmer.sustainabilityScore}/100</p>
+                          <p className="font-medium">{token.producer.sustainabilityScore}/100</p>
                         </div>
                         <div>
                           <p className="text-gray-600">Since</p>
-                          <p className="font-medium">{token.farmer.joinDate}</p>
+                          <p className="font-medium">{token.producer.joinDate}</p>
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-600">{token.farmer.bio}</p>
+                      <p className="text-sm text-gray-600">{token.producer.bio}</p>
 
                       <div className="flex flex-wrap gap-2">
-                        {token.farmer.certifications.map((cert) => (
+                        {token.producer.certifications.map((cert) => (
                           <Badge key={cert} variant="outline" className="text-xs">
                             {cert}
                           </Badge>
@@ -891,7 +891,7 @@ export default function TokenDetailsPage() {
                   </CardContent>
                 </Card>
 
-                {/* Investment Panel for non-farmers */}
+                {/* Investment Panel for non-producers */}
                 {userRole === "investor" && (
                   <Card>
                     <CardHeader>

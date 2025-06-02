@@ -13,12 +13,12 @@ import Link from "next/link"
 
 export default function GovernancePage() {
   const searchParams = useSearchParams()
-  const [userRole, setUserRole] = useState<"farmer" | "investor" | "buyer">("farmer")
+  const [userRole, setUserRole] = useState<"producer" | "investor" | "buyer">("producer")
 
   useEffect(() => {
     // Get user role from URL params or localStorage
-    const roleFromUrl = searchParams.get("role") as "farmer" | "investor" | "buyer"
-    const storedRole = localStorage.getItem("userRole") as "farmer" | "investor" | "buyer"
+    const roleFromUrl = searchParams.get("role") as "producer" | "investor" | "buyer"
+    const storedRole = localStorage.getItem("userRole") as "producer" | "investor" | "buyer"
 
     if (roleFromUrl) {
       setUserRole(roleFromUrl)
@@ -104,9 +104,9 @@ export default function GovernancePage() {
                   id: "PROP-001",
                   title: "Reduce Platform Transaction Fees",
                   description:
-                    "Proposal to reduce transaction fees from 2.5% to 2.0% to make the platform more accessible to smaller farmers and investors.",
+                    "Proposal to reduce transaction fees from 2.5% to 2.0% to make the platform more accessible to smaller producers and investors.",
                   category: "Platform Economics",
-                  proposer: "SmallFarmer.icp",
+                  proposer: "Smallproducer.icp",
                   timeLeft: "3 days",
                   votesFor: 12450,
                   votesAgainst: 3200,
@@ -134,11 +134,11 @@ export default function GovernancePage() {
                 },
                 {
                   id: "PROP-003",
-                  title: "Establish Farmer Support Fund",
+                  title: "Establish producer Support Fund",
                   description:
-                    "Create a community fund to help new farmers with initial setup costs and technology implementation.",
+                    "Create a community fund to help new producers with initial setup costs and technology implementation.",
                   category: "Community Support",
-                  proposer: "FarmerSupport.icp",
+                  proposer: "producerSupport.icp",
                   timeLeft: "1 week",
                   votesFor: 15200,
                   votesAgainst: 2100,

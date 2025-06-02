@@ -21,7 +21,7 @@ export default function InvestPage() {
   const token = {
     tokenId: "TF-001",
     species: "Atlantic Salmon",
-    farmer: "Nordic Aqua Farm",
+    producer: "Nordic Aqua Farm",
     location: "Norway",
     quantity: "2,500 kg",
     totalValue: 25000,
@@ -108,7 +108,7 @@ export default function InvestPage() {
                     <div className="flex justify-between text-sm text-gray-600">
                       <span className="flex items-center">
                         <MapPin className="h-3 w-3 mr-1" />
-                        {token.farmer} • {token.location}
+                        {token.producer} • {token.location}
                       </span>
                       <span className="flex items-center">
                         <Calendar className="h-3 w-3 mr-1" />
@@ -129,7 +129,7 @@ export default function InvestPage() {
                     <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
                       <h4 className="font-semibold text-green-800">High-Quality Farm</h4>
                       <p className="text-sm text-green-700 mt-1">
-                        Nordic Aqua Farm has a 95% success rate and 4.9/5 farmer rating
+                        Nordic Aqua Farm has a 95% success rate and 4.9/5 producer rating
                       </p>
                     </div>
                     <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">

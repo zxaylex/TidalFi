@@ -1,10 +1,10 @@
-# TidalFi
+# TidalChain
 
 A blockchain-powered platform connecting sustainable fish producers with global investors and buyers through tokenization. Built on ICP (Internet Computer Protocol) with transparent, traceable, and profitable aquaculture solutions.
 
-## 🐟 What is TidalFi?
+## 🐟 What is TidalChain?
 
-TidalFi revolutionizes sustainable aquaculture financing by:
+TidalChain revolutionizes sustainable aquaculture financing by:
 - **producers**: Tokenize future harvests with IoT monitoring and sustainability certifications.
 - **Investors**: Fund sustainable operations and earn returns from successful harvests.
 - **Buyers**: Secure premium, traceable fish with verified sustainability credentials.

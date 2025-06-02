@@ -5,7 +5,7 @@ import { Fish, Waves, TrendingUp, Shield, Users, Leaf } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white scroll-smooth">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">

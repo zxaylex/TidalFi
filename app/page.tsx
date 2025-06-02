@@ -22,9 +22,6 @@ export default function HomePage() {
             </Link>
           </nav>
           <div className="flex items-center space-x-3">
-            <Button variant="outline" asChild>
-              <Link href="/auth">Login</Link>
-            </Button>
             <Button className="bg-blue-700 hover:bg-blue-600 font-bol" asChild>
               <Link href="/auth" >Get Started</Link>
             </Button>

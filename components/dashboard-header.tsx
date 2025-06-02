@@ -15,12 +15,12 @@ import { Badge } from "@/components/ui/badge"
 import { Waves, User, Settings, LogOut, Bell, Fish, TrendingUp, ShoppingCart, HelpCircle } from "lucide-react"
 
 interface DashboardHeaderProps {
-  userRole?: "farmer" | "investor" | "buyer"
-  forceRole?: "farmer" | "investor" | "buyer" // Force a specific role
+  userRole?: "producer" | "investor" | "buyer"
+  forceRole?: "producer" | "investor" | "buyer" // Force a specific role
 }
 
 export function DashboardHeader({ userRole: propUserRole, forceRole }: DashboardHeaderProps) {
-  const [userRole, setUserRole] = useState<"farmer" | "investor" | "buyer">("farmer")
+  const [userRole, setUserRole] = useState<"producer" | "investor" | "buyer">("producer")
 
   useEffect(() => {
     // Force role takes precedence, then prop, then localStorage
@@ -31,7 +31,7 @@ export function DashboardHeader({ userRole: propUserRole, forceRole }: Dashboard
       setUserRole(propUserRole)
       localStorage.setItem("userRole", propUserRole)
     } else {
-      const storedRole = localStorage.getItem("userRole") as "farmer" | "investor" | "buyer"
+      const storedRole = localStorage.getItem("userRole") as "producer" | "investor" | "buyer"
       if (storedRole) {
         setUserRole(storedRole)
       }
@@ -46,7 +46,7 @@ export function DashboardHeader({ userRole: propUserRole, forceRole }: Dashboard
 
   const getRoleIcon = () => {
     switch (userRole) {
-      case "farmer":
+      case "producer":
         return <Fish className="h-4 w-4" />
       case "investor":
         return <TrendingUp className="h-4 w-4" />
@@ -57,7 +57,7 @@ export function DashboardHeader({ userRole: propUserRole, forceRole }: Dashboard
 
   const getRoleColor = () => {
     switch (userRole) {
-      case "farmer":
+      case "producer":
         return "bg-blue-100 text-blue-800"
       case "investor":
         return "bg-green-100 text-green-800"
@@ -79,12 +79,12 @@ export function DashboardHeader({ userRole: propUserRole, forceRole }: Dashboard
             <Link href={`/dashboard/${userRole}`} className="text-gray-600 hover:text-blue-600 font-medium">
               Dashboard
             </Link>
-            {userRole === "farmer" && (
+            {userRole === "producer" && (
               <>
-                <Link href={`/dashboard/farmer/pond`} className="text-gray-600 hover:text-blue-600">
+                <Link href={`/dashboard/producer/pond`} className="text-gray-600 hover:text-blue-600">
                   My Pond
                 </Link>
-                <Link href={`/dashboard/farmer/tokens`} className="text-gray-600 hover:text-blue-600">
+                <Link href={`/dashboard/producer/tokens`} className="text-gray-600 hover:text-blue-600">
                   My Tokens
                 </Link>
               </>
